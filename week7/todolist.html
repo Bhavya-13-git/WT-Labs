@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: green;
+            padding: 10px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        input {
+            width: 60%;
+            padding: 8px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .task-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #e0e0e0;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .edit-btn {
+            background: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+        }
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">ToDo List</div>
+
+        <h3>Add Items</h3>
+        <input type="text" id="task-input" placeholder="Enter a task">
+        <button id="add-task-btn">Submit</button>
+
+        <h3>Tasks</h3>
+        <div id="task-list" class="task-list"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#add-task-btn").click(function () {
+                let taskText = $("#task-input").val().trim();
+                if (taskText) {
+                    let taskItem = $("<div class='task-item'>" +
+                        "<span class='task-text'>" + taskText + "</span>" +
+                        "<button class='edit-btn'>Edit</button> " +
+                        "<button class='delete-btn'>Delete</button>" +
+                        "</div>");
+
+                    $("#task-list").append(taskItem);
+                    $("#task-input").val(""); 
+                }
+            });
+
+            $("#task-list").on("click", ".delete-btn", function () {
+                $(this).parent().remove();
+            });
+
+            $("#task-list").on("click", ".edit-btn", function () {
+                let taskSpan = $(this).siblings(".task-text");
+                let newText = prompt("Edit your task:", taskSpan.text());
+                if (newText !== null && newText.trim() !== "") {
+                    taskSpan.text(newText);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

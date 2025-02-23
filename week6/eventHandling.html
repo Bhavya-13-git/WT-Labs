@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Event Handling</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .content-box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 20px auto;
+            line-height: 100px;
+            font-weight: bold;
+            display: none;
+        }
+        .hover-box {
+            width: 200px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 20px auto;
+            line-height: 100px;
+            transition: background-color 0.3s;
+        }
+        .char-count {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Task 1: Click Event - Show/Hide Content -->
+    <button id="toggle-btn">Toggle Content</button>
+    <div class="content-box">Hello, jQuery!</div>
+
+    <!-- Task 2: Keypress Event - Live Character Counter -->
+    <input type="text" id="text-input" placeholder="Type here..." maxlength="100">
+    <p class="char-count">Characters: <span id="char-count">0</span>/50</p>
+
+    <!-- Task 3: Hover Event - Change Background Color -->
+    <div class="hover-box">Hover over me!</div>
+
+    <script>
+        $(document).ready(function(){
+            // Task 1: Click Event - Show/Hide Content with Animation
+            $("#toggle-btn").click(function(){
+                $(".content-box").fadeToggle();
+            });
+
+            // Task 2: Keypress Event - Live Character Counter
+            $("#text-input").on("input", function(){
+                let count = $(this).val().length;
+                $("#char-count").text(count);
+                
+                if(count > 50){
+                    $("#char-count").css("color", "red");
+                } else {
+                    $("#char-count").css("color", "black");
+                }
+            });
+
+            // Task 3: Hover Event - Change Background Color
+            $(".hover-box").hover(
+                function(){
+                    $(this).css("background-color", "lightcoral");
+                }, 
+                function(){
+                    $(this).css("background-color", "lightgray");
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

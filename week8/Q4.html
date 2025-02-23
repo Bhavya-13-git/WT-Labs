@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highlight Bold Words</title>
+</head>
+<body>
+
+<p>The <b>quick</b> brown <b>fox</b> jumps over the <b>lazy</b> dog.</p>
+<a href="#" onmouseover="highlight()" onmouseout="removeHighlight()">Hover to Highlight Bold</a>
+
+<script>
+function highlight() {
+    let boldWords = document.querySelectorAll("b");
+    boldWords.forEach(word => {
+        word.style.color = "red";
+    });
+}
+
+function removeHighlight() {
+    let boldWords = document.querySelectorAll("b");
+    boldWords.forEach(word => {
+        word.style.color = "black";
+    });
+}
+</script>
+
+</body>
+</html>

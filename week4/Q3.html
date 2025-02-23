@@ -1,0 +1,35 @@
+<!-- 3. Expandable FAQ Section Using Slide Effects -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .faq {
+            width: 300px;
+            margin: 20px auto;
+        }
+        .answer {
+            display: none;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq">
+        <h3 class="question">What is jQuery?</h3>
+        <p class="answer">jQuery is a fast, small, and feature-rich JavaScript library.</p>
+        <h3 class="question">How does slideToggle work?</h3>
+        <p class="answer">It toggles between slideUp and slideDown effects.</p>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".question").click(function() {
+                $(this).next(".answer").slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>

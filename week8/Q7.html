@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+    First Name: <input type="text" id="fname"><br>
+    Last Name: <input type="text" id="lname"><br>
+    Username: <input type="text" id="username"><br>
+    Email: <input type="text" id="email"><br>
+    Phone Number: <input type="text" id="phone"><br>
+    Password: <input type="password" id="password"><br>
+    <input type="submit" value="Register">
+</form>
+
+<script>
+function validateForm() {
+    let fname = document.getElementById("fname").value;
+    let lname = document.getElementById("lname").value;
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let password = document.getElementById("password").value;
+
+    let nameRegex = /^[A-Za-z]+$/;
+    let usernameRegex = /^[A-Za-z0-9]{6,15}$/;
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let phoneRegex = /^[0-9]{10}$/;
+    let passwordRegex = /^[A-Za-z](?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{5,}$/;
+
+    if (!nameRegex.test(fname) || !nameRegex.test(lname)) {
+        alert("First and last name should contain only letters.");
+        return false;
+    }
+
+    if (!usernameRegex.test(username)) {
+        alert("Username must be 6-15 characters long.");
+        return false;
+    }
+
+    if (!emailRegex.test(email)) {
+        alert("Invalid email format.");
+        return false;
+    }
+
+    if (!phoneRegex.test(phone)) {
+        alert("Phone number must be 10 digits.");
+        return false;
+    }
+
+    if (!passwordRegex.test(password)) {
+        alert("Password must start with a letter, have at least one uppercase, one lowercase, one digit, and one special character.");
+        return false;
+    }
+
+    alert("Registration successful!");
+    return true;
+}
+</script>
+
+</body>
+</html>

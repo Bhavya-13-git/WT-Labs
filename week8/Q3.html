@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Count</title>
+</head>
+<body>
+
+<select id="dropdown">
+    <option>Apple</option>
+    <option>Banana</option>
+    <option>Cherry</option>
+    <option>Grapes</option>
+</select>
+<button onclick="countItems()">Count Items</button>
+
+<script>
+function countItems() {
+    let dropdown = document.getElementById("dropdown");
+    alert("Total items in dropdown: " + dropdown.options.length);
+}
+</script>
+
+</body>
+</html>

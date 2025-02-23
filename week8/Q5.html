@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window Size</title>
+</head>
+<body>
+
+<p id="size">Resize the window</p>
+
+<script>
+function updateSize() {
+    document.getElementById("size").innerHTML = "Width: " + window.innerWidth + "px, Height: " + window.innerHeight + "px";
+}
+
+window.onresize = updateSize;
+updateSize();
+</script>
+
+</body>
+</html>

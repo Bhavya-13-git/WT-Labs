@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validate Number</title>
+</head>
+<body>
+
+<input type="text" id="numInput">
+<button onclick="validateNumber()">Check</button>
+<p id="result"></p>
+
+<script>
+function validateNumber() {
+    let value = document.getElementById("numInput").value;
+    let result = document.getElementById("result");
+    
+    if (!isNaN(value) && value.trim() !== "") {
+        result.innerHTML = "Valid number";
+        result.style.color = "green";
+    } else {
+        result.innerHTML = "Not a valid number";
+        result.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>

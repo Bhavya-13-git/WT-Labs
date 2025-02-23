@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS DOM paragraph style</title>
+</head>
+<body>
+
+<p id="text">JavaScript Exercise – test</p>
+<button id="jsstyle" onclick="js_style()">Style</button>
+
+<script>
+function js_style() {
+    let para = document.getElementById("text");
+    para.style.fontFamily = "Arial, sans-serif";
+    para.style.fontSize = "20px";
+    para.style.color = "blue";
+}
+</script>
+
+</body>
+</html>

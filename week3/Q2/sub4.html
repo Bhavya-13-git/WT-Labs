@@ -1,0 +1,39 @@
+<!-- create a page with 3 rows of 3 images in each row. There needs to be a caption of text below each image, and background color, border, padding and margin will be applied. When placed cursor on an image, display some description -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+       p{
+           background-color : red;
+       }
+       .one{
+           border: 2px solid black;
+           height: 50px;
+           width: 100px;
+       }
+       .two{
+           border: 2px solid black;
+           height: 50px;
+           width: 100px;
+       }
+   </style>
+</head>
+<body>
+   <img src="C:\Users\pbhar\OneDrive\Pictures\Virat (3).jpeg" alt="" class="img1">
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, odit!</p>
+   <div class="one"></div>
+   <br><br>
+   <img src="C:\Users\pbhar\OneDrive\Pictures\Landing Page.webp" alt="" class="img2">
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, optio.</p>
+   <div class="two"></div>
+   <script> 
+    let img2=document.querySelector(".img2")
+    img2.onmouseenter=function() {
+    console.log("img2 was clicked")
+    }
+   </script>
+</body>
+</html>

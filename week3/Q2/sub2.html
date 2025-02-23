@@ -1,0 +1,56 @@
+<!-- - Create a page which contains 4 paragraphs: a paragraph with a background color, the same paragraph with padding added, then add a border, finally add margin. Add width to the content and then calculate how big the box is. List the size of the box on the page. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model Example</title>
+  <style>
+    .box {
+      width: 300px; /* Content width */
+    }
+
+    .background {
+      background-color: lightblue;
+    }
+
+    .padding {
+      background-color: lightblue;
+      padding: 20px;
+    }
+
+    .border {
+      background-color: lightblue;
+      padding: 20px;
+      border: 5px solid darkblue;
+    }
+
+    .margin {
+      background-color: lightblue;
+      padding: 20px;
+      border: 5px solid darkblue;
+      margin: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Box Model Example</h1>
+
+  <p class="box background">This paragraph has a background color applied.</p>
+  <p class="box padding">This paragraph has background color and padding added.</p>
+  <p class="box border">This paragraph has background color, padding, and a border.</p>
+  <p class="box margin">This paragraph has background color, padding, a border, and a margin.</p>
+
+  <p><strong>Box Dimensions Calculation:</strong></p>
+  <ul>
+    <li>Content width: 300px</li>
+    <li>Padding: 20px on each side (20px × 2 = 40px)</li>
+    <li>Border: 5px on each side (5px × 2 = 10px)</li>
+    <li>Margin: 15px on each side (15px × 2 = 30px)</li>
+    <li>Total Box Width: 300px (content) + 40px (padding) + 10px (border) + 30px (margin) = <strong>380px</strong></li>
+  </ul>
+</body>
+</html>
+
+</body>
+</html>

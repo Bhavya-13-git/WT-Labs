@@ -1,0 +1,48 @@
+<!-- Create a sample page which displays various values for the border-radius property -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Border Radius Examples</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display: inline-block;
+      background-color: lightblue;
+    }
+
+    .radius-0 {
+      border-radius: 0;
+    }
+
+    .radius-10 {
+      border-radius: 10px;
+    }
+
+    .radius-50 {
+      border-radius: 50%;
+    }
+
+    .radius-top-left {
+      border-top-left-radius: 20px;
+    }
+
+    .radius-bottom-right {
+      border-bottom-right-radius: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Border Radius Examples</h1>
+  <div class="box radius-0">0px</div>
+  <div class="box radius-10">10px</div>
+  <div class="box radius-50">50%</div>
+  <div class="box radius-top-left">Top-Left 20px</div>
+  <div class="box radius-bottom-right">Bottom-Right 30px</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+        }
+        .task-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f0f0f0;
+            padding: 8px;
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 3px 6px;
+        }
+        .toggle-box {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            margin: auto;
+            background-color: lightgray;
+        }
+        .highlight {
+            background-color: yellow !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Task 1: Add and Remove Elements Dynamically -->
+    <div class="task-container">
+        <h3>Task 1: Add and Remove Elements</h3>
+        <input type="text" id="item-input" placeholder="Enter item">
+        <button id="add-item">Add Item</button>
+        <ul id="item-list"></ul>
+    </div>
+
+    <!-- Task 2: Change Text and Attributes -->
+    <div class="task-container">
+        <h3>Task 2: Change Text and Attributes</h3>
+        <p id="text-paragraph">This is the original text.</p>
+        <button id="change-text">Change Text</button>
+    </div>
+
+    <!-- Task 3: Clone and Modify Elements -->
+    <div class="task-container">
+        <h3>Task 3: Clone and Modify Elements</h3>
+        <div class="clone-box">Clonable Text</div>
+        <button id="clone-btn">Clone</button>
+        <div id="clone-container"></div>
+    </div>
+
+    <!-- Task 4: Add and Toggle CSS Classes -->
+    <div class="task-container">
+        <h3>Task 4: Add and Toggle CSS Classes</h3>
+        <div class="toggle-box">Toggle Me</div>
+        <button id="toggle-class-btn">Toggle Highlight</button>
+    </div>
+
+    <!-- Task 5: Form Input Value Manipulation -->
+    <div class="task-container">
+        <h3>Task 5: Form Input Value Manipulation</h3>
+        <input type="text" id="text-transform">
+        <button id="to-uppercase">Uppercase</button>
+        <button id="to-lowercase">Lowercase</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // Task 1: Add and Remove Elements Dynamically
+            $("#add-item").click(function(){
+                let itemText = $("#item-input").val().trim();
+                if (itemText) {
+                    let listItem = $("<li>" + itemText + " <button class='delete-btn'>X</button></li>");
+                    $("#item-list").append(listItem);
+                    $("#item-input").val(""); // Clear input field
+                }
+            });
+
+            $("#item-list").on("click", ".delete-btn", function(){
+                $(this).parent().remove();
+            });
+
+            // Task 2: Change Text and Attributes
+            $("#change-text").click(function(){
+                $("#text-paragraph").text("This is the new text!");
+                $(this).text("Text Changed");
+            });
+
+            // Task 3: Clone and Modify Elements
+            let cloneCount = 0;
+            $("#clone-btn").click(function(){
+                cloneCount++;
+                let clonedDiv = $(".clone-box").clone().text("Cloned Box " + cloneCount);
+                clonedDiv.css("color", "blue");
+                $("#clone-container").append(clonedDiv);
+            });
+
+            // Task 4: Add and Toggle CSS Classes
+            $("#toggle-class-btn").click(function(){
+                $(".toggle-box").toggleClass("highlight");
+            });
+
+            // Task 5: Form Input Value Manipulation
+            $("#to-uppercase").click(function(){
+                let inputText = $("#text-transform").val();
+                $("#text-transform").val(inputText.toUpperCase());
+            });
+
+            $("#to-lowercase").click(function(){
+                let inputText = $("#text-transform").val();
+                $("#text-transform").val(inputText.toLowerCase());
+            });
+        });
+    </script>
+
+</body>
+</html>

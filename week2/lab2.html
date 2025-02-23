@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <form id="regForm" onsubmit="return validateForm()">
+            <fieldset>
+                <legend>Registration Form</legend>
+
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <span class="error-msg" id="firstNameError"></span>
+
+                <label for="middleName">Middle Name (Optional):</label>
+                <input type="text" id="middleName" name="middleName">
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <span class="error-msg" id="lastNameError"></span>
+
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" readonly>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-msg" id="emailError"></span>
+
+                <label for="country">Country:</label>
+                <select id="country" name="country" onchange="validatePhoneNumber()">
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                </select>
+
+                <label for="phoneNo">Phone Number:</label>
+                <input type="text" id="phoneNo" name="phoneNo" required>
+                <span class="error-msg" id="phoneError"></span>
+
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <span id="togglePassword" onclick="togglePassword()">👁️</span>
+                </div>
+                <span class="error-msg" id="passwordError"></span>
+
+                <label>Hobbies (Select at least two):</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" name="hobbies" value="Reading"> Reading
+                    <input type="checkbox" name="hobbies" value="Traveling"> Traveling
+                    <input type="checkbox" name="hobbies" value="Music"> Music
+                    <input type="checkbox" name="hobbies" value="Sports"> Sports
+                </div>
+                <span class="error-msg" id="hobbiesError"></span>
+
+                <label for="photo">Upload Passport Size Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <span class="error-msg" id="photoError"></span>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+                <span class="error-msg" id="dobError"></span>
+                <p>Age: <span id="age"></span></p>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea>
+                <span class="error-msg" id="addressError"></span>
+
+                <label>
+                    <input type="checkbox" id="terms" name="terms" required> I agree to the terms of the company
+                </label>
+
+                <div class="buttons">
+                    <button type="button" onclick="confirmReset()">Reset</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
